@@ -15,9 +15,9 @@ public:
         int resultado = restaurante.run(buffer);
         
         if (resultado == Fase::LEVEL_COMPLETE)
-            std::cout << "🎉 Todas as crianças foram atendidas! Fred é um herói!\n";
+            std::cout << "Todas as crianças foram atendidas! Fred é um herói!\n";
         else
-            std::cout << "😢 Fred não conseguiu hoje... Tente novamente!\n";
+            std::cout << "Fred não conseguiu hoje... Tente novamente!\n";
     }
 };
 
