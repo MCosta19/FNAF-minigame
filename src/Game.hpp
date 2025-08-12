@@ -7,7 +7,7 @@
 class Game {
 public:
     static void run() {
-        SpriteBuffer buffer(80, 25); // Tamanho ideal para ASCII art
+        SpriteBuffer buffer(80, 25);
         
         FaseRestaurante restaurante;
         restaurante.init();
