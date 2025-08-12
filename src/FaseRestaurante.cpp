@@ -11,25 +11,27 @@ void FaseRestaurante::init() {
     criancas.push_back(new Crianca(15, 50));
     for (auto crianca : criancas) objs.push_back(crianca);
 
-    bolinho = new Bolinho(5, 5);
-    objs.push_back(bolinho);
-
     mesas.push_back(new Mesa(8, 25));
     mesas.push_back(new Mesa(8, 45));
     mesas.push_back(new Mesa(13, 35));
     for (auto mesa : mesas) objs.push_back(mesa);
+
+    bolinho = new Bolinho(5, 5);
+    objs.push_back(bolinho);
 }
 
 unsigned FaseRestaurante::run(SpriteBuffer &screen) {
     std::string input;
-    
+
+    const int respawnDelay = 50; // número de ciclos para reaparecer o bolinho
+
     while (true) {
         // Processa input
         getline(std::cin, input);
-        
+
         // Salva posição atual para colisões
         int posL = fred->getPosL(), posC = fred->getPosC();
-        
+
         // Movimentação
         if (input == "w") fred->moveUp(1);
         else if (input == "s") fred->moveDown(1);
@@ -45,10 +47,13 @@ unsigned FaseRestaurante::run(SpriteBuffer &screen) {
             }
         }
 
-        // Verifica entrega de bolinhos
+        // Atualiza o bolinho (para controlar respawn)
+        bolinho->update();
+
+        // Verifica se Fred pegou o bolinho
         if (bolinho->getActive() && fred->colideCom(*bolinho)) {
             fred->pegarBolinho();
-            bolinho->desativarObj();
+            bolinho->desativarComRespawn(respawnDelay);
         }
 
         // Verifica entrega de bolinhos
