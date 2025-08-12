@@ -8,8 +8,8 @@ public:
     Crianca(int posL, int posC, bool satisfeita = false) : 
         ObjetoDeJogo("Crianca", 
             satisfeita ?
-                Sprite("rsc/crianca_feliz.img") :
-                Sprite("rsc/crianca_triste.img"),
+                Sprite("rsc/criancafeliz.img") :
+                Sprite("rsc/criancatriste.img"),
             posL, posC),
         satisfeita(satisfeita) {}
     

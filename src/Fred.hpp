@@ -8,8 +8,8 @@ public:
     Fred(int posL, int posC, bool comBolinho = false) : 
         ObjetoDeJogo("Fred", 
             comBolinho ? 
-                SpriteAnimado("rsc/fred_com_bolinho.anm", 2) : 
-                SpriteAnimado("rsc/fred_sem_bolinho.anm", 2), 
+                SpriteAnimado("rsc/fredcom.anm", 2) : 
+                SpriteAnimado("rsc/fredsem.anm", 2), 
             posL, posC),
         comBolinho(comBolinho) {}
     
