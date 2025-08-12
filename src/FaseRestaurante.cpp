@@ -11,6 +11,9 @@ void FaseRestaurante::init() {
     criancas.push_back(new Crianca(15, 50));
     for (auto crianca : criancas) objs.push_back(crianca);
 
+    bolinho = new Bolinho(5, 5);
+    objs.push_back(bolinho);
+
     mesas.push_back(new Mesa(8, 25));
     mesas.push_back(new Mesa(8, 45));
     mesas.push_back(new Mesa(13, 35));
@@ -40,6 +43,12 @@ unsigned FaseRestaurante::run(SpriteBuffer &screen) {
                 fred->moveTo(posL, posC);
                 break;
             }
+        }
+
+        // Verifica entrega de bolinhos
+        if (bolinho->getActive() && fred->colideCom(*bolinho)) {
+            fred->pegarBolinho();
+            bolinho->desativarObj();
         }
 
         // Verifica entrega de bolinhos

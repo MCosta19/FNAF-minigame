@@ -5,6 +5,7 @@
 #include "Fred.hpp"
 #include "Crianca.hpp"
 #include "Mesa.hpp"
+#include "Bolinho.hpp"
 #include <vector>
 
 class FaseRestaurante : public Fase {
@@ -16,6 +17,7 @@ public:
 
 private:
     Fred* fred;
+    Bolinho* bolinho;
     std::vector<Crianca*> criancas;
     std::vector<Mesa*> mesas;
 };
